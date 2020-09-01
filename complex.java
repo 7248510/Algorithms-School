@@ -1,12 +1,12 @@
 import java.io.*;
 import java.lang.*;
 import java.util.Scanner;
-public class basic //Java feels a lot like C++, the difference is the structs are missing.
+public class complex //Java feels a lot like C++, the difference is the structs are missing.
 {
     //private String name = " "; //Declaring and Setting values
     private int x = 0; //Declaring and Setting values
     private String z = " ";
-    public basic(int y,String w)
+    public complex(int y,String w)
     {
         x = y;
         z = w;
@@ -47,22 +47,26 @@ public class basic //Java feels a lot like C++, the difference is the structs ar
     }
     public static void main(String args[]) //Not passing any arguments on the command line.
     {
-        System.out.println("Enter a user name");
-        basic madeup = new basic(78,"DOD is the dream"); //ClassName ObjectName
-        //System.out.println(madeup);
-        basic tao = new basic(007,"GCHQ much?");
-        //System.out.println(tao);
-        basic tom = new basic(700,"James bond?");
-        basic inputTest = new basic(0,"Default");
-        inputTest.input(); 
-        int tomsAge = tom.getAge();
-        String tomsName = tom.getName();
-        //int tomsAge = tom.setAge(500);
-        tom.setAge(20);
-        tom.setName("Working at the agency would be really cool");
-        System.out.println(tom.toString());
-        System.out.println(tao);
-        System.out.println(madeup);
-        System.out.println(inputTest);
+        //Person[] employee;
+        //employee = new Person[3];
+        complex[] test;
+        test = new complex[3];
+        test[0] = new complex(0,"default");
+        test[1] = new complex(1,"default");
+        test[2] = new complex(2,"default");
+        test[0].input();
+        test[1].input();
+        test[2].input();
+        for (int i = 2; i >= 0; --i) //When setting your loops make sure to start at the actual value, 3 wouldn't work...
+        {
+            //System.out.println(i); //Testing
+            System.out.println(test[i]);
+        }
+        /*
+        threeListings[] complex = new complex[3]; //3 spaces of memory for complex, starting at 0
+        threeListings[0] = "Alpha" + 80;
+        threeListings[1] = "NSA" + 49;
+        threeListings[2] = "CIA" + 50;
+        */
     }
 }
