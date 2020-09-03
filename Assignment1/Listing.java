@@ -13,8 +13,6 @@ public class Listing //Java feels a lot like C++, the difference is the structs 
     }
     public String toString()
     {
-        //return ("INT:\n" + x + "String:\n" + name);
-        //return (x + name);
         return ("Listing Age: " + age +" Listing Name: "+ name);
     }
     public int getAge()
@@ -69,8 +67,8 @@ public class Listing //Java feels a lot like C++, the difference is the structs 
     {
         Scanner myObj = new Scanner(System.in);
         System.out.println("If you'd like to test input functionality please press 1.\nElse press 2 to exit.");
-        int trigger = myObj.nextInt();
-        switch (trigger) {
+        int catalyst = myObj.nextInt();
+        switch (catalyst) {
             case 1: inputExample();
             break;
             case 2:
