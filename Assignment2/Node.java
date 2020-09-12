@@ -44,14 +44,4 @@ public class Node
         Node inputData = new Node(nameI, uidI, gpaI);
         return inputData;
     }
-    /*
-    public void showAll()
-    {
-    for (int i = 2; i >= 0; --i) //When setting your loops make sure to start at the actual value, 3 wouldn't work... 0,1,2
-            {
-                System.out.println(listArray[i]); //Outputting i, initializing I to 2, condition = i less than or equal to 0, if valid decrement the loop
-            }
-
-    }
-    */
 }

@@ -11,8 +11,8 @@ The important part to learn is knowing how to manually write the dynamic memory 
 You must use a plain array ( Node[] ) and not one of Java's pre-built classes that handles resizing automatically. 
 The final exercise (#21) is just a demonstration that your array operations work. 
 You do not need to implement a sorting algorithm! (We're doing that much later in the course)
-
 */
+import java.util.Scanner;
 public class StudentListings
 {
     private int next;
@@ -92,5 +92,63 @@ public class StudentListings
             System.out.println(data[i].toString());
         }   
         //System.out.println(next);
+    }
+    public void createnewLine() {
+        System.out.println("");
+    }
+    public void choice()
+    {
+        String message = "Press 1 to insert a new students information:\nPress 2 to fetch and output a students information\nPress 3 to delete a students information\nPress 4 to update a students information\nPress 5 to output all the students information\npress 6 to exit";
+        System.out.println(message);
+        Scanner myObj = new Scanner(System.in);
+        int catalyst = myObj.nextInt();
+        StudentListings information = new StudentListings(100);
+        Node julia = new Node("Julia", "234", "4.00");
+        Node johnny = new Node("Johnny", "857", "3.00");
+        Node chuck = new Node("Chuck", "007", "4.01");
+        Node Suzan = new Node("Suzan", "344", "4.00");
+        information.insert(johnny);
+        information.insert(chuck);
+        information.insert(julia);
+        if  (catalyst == 1) {
+          Node inputStudent = new Node(" ", " ", " ");
+           inputStudent.input();
+           information.insert(inputStudent);
+           System.out.println("You've input a student would you like to return to the menu?\n1 for yes, 2 for no.");
+            information.showAll();
+            this.choice();
+        }
+        if (catalyst == 2) {
+            System.out.println("Please select a students information to fetch.\nUse the first name in the operation.");
+            information.showAll();
+            information.createnewLine();
+            String choice = myObj.next();
+            System.out.println("Fetched\n"+ information.fetch(choice).toString());
+            information.createnewLine();
+            this.choice();
+        }
+        if  (catalyst == 3) {
+            information.showAll();
+            String choice = myObj.next();
+            System.out.println("Deleted:\n"+ information.delete(choice));
+            information.createnewLine();
+            information.showAll();
+            information.createnewLine();
+            this.choice();
+        }
+        if  (catalyst == 4) {
+            information.showAll();
+            System.out.println("Fixing a mistake, updating John to Suzan");
+            information.update("Johnny", Suzan);
+            information.showAll();
+            information.createnewLine();
+            this.choice();
+        }
+        if  (catalyst == 5) {
+            information.showAll();
+        }
+        if  (catalyst == 6) {
+        System.exit(0);
+        }
     }
 }
