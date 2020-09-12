@@ -2,15 +2,14 @@
 //Demonstrate your code/run the program, sorting isn't necessasary
 /*
 Read Chapter 2 in the McAllister text.
-
 Complete and Submit Programming Exercises #19, #20 and #21 on pages 121-122 of The McAllister text.
-
 Note: The book makes this sound a little harder than it is. Your goal here is to create a Node  class (#19) which represents one student,
 and then create another class which contains an array of Node objects (#20) and supports insertions, deletions, etc.  
 The important part to learn is knowing how to manually write the dynamic memory allocation of the array as it changes size due to the insertions and deletions. 
 You must use a plain array ( Node[] ) and not one of Java's pre-built classes that handles resizing automatically. 
 The final exercise (#21) is just a demonstration that your array operations work. 
 You do not need to implement a sorting algorithm! (We're doing that much later in the course)
+//This has a sorting mechanism in it
 */
 import java.util.Scanner;
 public class StudentListings
@@ -27,7 +26,7 @@ public class StudentListings
     }
     public boolean insert(Node newNode)
     {
-        if (next>= size)
+        if (next >= size) //Error, cannot insert
         {
             return false;
         }
@@ -35,46 +34,54 @@ public class StudentListings
         if (data[next] == null) {
             return false;
         }
-        next = next + 1;
-        return true;
+        next = next + 1; //Adding the node
+        return true; //Evaluating the action to true!
     }
     public Node fetch(String targetKey)
     {
         Node node;
         Node temp;
+        //Using a sequential search, the book helped with this
         int i = 0;
-        while (i < next && !(data[i].compareTo(targetKey) == 0))
+        while (i < next && !(data[i].compareTo(targetKey) == 0)) //
         {
-            i++;
+            i++; //Itterating i to find the correct node.
         }
         if (i==next) {
-            return null;
+            return null; //This is for if the node hasn't been found
         }
-        node = data[i].deepCopy();
+        node = data[i].deepCopy(); //Setting a deep copy of the node's information
+        //Moving the node up one unless the first node.
         if(i != 0) {
             temp = data[i - 1];
             data[i - 1] = data[i];
             data[i] = temp;
         }
-        return node;
+        return node; //returning the fetched node
     }
-    public boolean delete(String targetKey)
-    {
+    public boolean delete(String targetKey) //Uses the students name as the key.
+    { //Using the sequential search
         int i = 0;
         while(i < next && !(data[i].compareTo(targetKey) == 0))
         {
             i++;
         }
-        if (i == next) {
+        if (i == next) { //If node isn't found
             return false;
         }
+        //Moving the last node 
         data[i] = data[next - 1];
         data[next - 1] = null;
         next = next - 1;
-        return true;
+        return true; //If the nodes found and deleted
     }
-
-    public boolean update(String targetKey, Node newNode)
+    public void showAll()
+        {
+            for (int i = 0; i < next; i++) {
+                System.out.println(data[i].toString());
+            }   
+        }  
+    public boolean update(String targetKey, Node newNode) //Ussing the name, and passing the new Node's position
     {
         if (delete(targetKey) == false){
             return false;
@@ -86,23 +93,16 @@ public class StudentListings
             return true;
         }
     }
-    public void showAll()
-    {
-        for (int i = 0; i < next; i++) {
-            System.out.println(data[i].toString());
-        }   
-        //System.out.println(next);
-    }
     public void createnewLine() {
         System.out.println("");
     }
     public void choice()
     {
+        StudentListings information = new StudentListings(100);
         String message = "Press 1 to insert a new students information:\nPress 2 to fetch and output a students information\nPress 3 to delete a students information\nPress 4 to update a students information\nPress 5 to output all the students information\npress 6 to exit";
         System.out.println(message);
         Scanner myObj = new Scanner(System.in);
         int catalyst = myObj.nextInt();
-        StudentListings information = new StudentListings(100);
         Node julia = new Node("Julia", "234", "4.00");
         Node johnny = new Node("Johnny", "857", "3.00");
         Node chuck = new Node("Chuck", "007", "4.01");
@@ -111,17 +111,16 @@ public class StudentListings
         information.insert(chuck);
         information.insert(julia);
         if  (catalyst == 1) {
-          Node inputStudent = new Node(" ", " ", " ");
-           inputStudent.input();
-           information.insert(inputStudent);
-           System.out.println("You've input a student would you like to return to the menu?\n1 for yes, 2 for no.");
+            Node inputStudent = new Node(" ", " ", " ");
+            inputStudent.input();
+            information.insert(inputStudent);
+            System.out.println("You've input a student would you like to return to the menu?\n1 for yes, 2 for no.");
             information.showAll();
             this.choice();
         }
         if (catalyst == 2) {
             System.out.println("Please select a students information to fetch.\nUse the first name in the operation.");
             information.showAll();
-            information.createnewLine();
             String choice = myObj.next();
             System.out.println("Fetched\n"+ information.fetch(choice).toString());
             information.createnewLine();
@@ -146,6 +145,7 @@ public class StudentListings
         }
         if  (catalyst == 5) {
             information.showAll();
+            this.choice();
         }
         if  (catalyst == 6) {
         System.exit(0);

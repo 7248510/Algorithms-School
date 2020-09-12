@@ -11,11 +11,11 @@ public class Node
         uid = suiD;
         gpa = sgpA;
     }
-    public String toString()
+    public String toString() //Same as the AS1, granted Java automatically makes a string if you have an int + String
     {
-        return name + uid + gpa;
+        return "Name: " + name + " Unique Idenification: " + uid + " Grade point average: "+ gpa;
     }
-    public Node deepCopy()
+    public Node deepCopy() //Same as the AS1
     {
         Node clone = new Node(name, uid, gpa);
         return clone;
@@ -33,14 +33,14 @@ public class Node
         Scanner myObj = new Scanner(System.in);
         System.out.println("Please enter your name: ");
         String nameI = myObj.nextLine();
-        System.out.println("Please enter your age:");
+        System.out.println("Please enter your GPA:");
         String gpaI = myObj.nextLine();
         System.out.println("Please enter your age:");
         String uidI = myObj.nextLine();
         // Output input by user
-        uid = uidI; //ageInput
-        name = nameI; //agename
-        gpa = gpaI;
+        uid = uidI; //Getting the passed values
+        name = nameI; //Getting the passed values
+        gpa = gpaI; // Getting the passed values
         Node inputData = new Node(nameI, uidI, gpaI);
         return inputData;
     }
