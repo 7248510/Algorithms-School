@@ -15,16 +15,16 @@ public static void choice()
         information.insert(chuck);
         information.insert(julia);
         if  (catalyst == 1) {
-            chuck.input();
+           // information.input();
         }
         if  (catalyst == 2) {
-            julia.fetch();
+            //information.fetch();
         }
         if  (catalyst == 3) {
-            johnny.delete();
+            //information.delete();
         }
         if  (catalyst == 4) {
-            johnny.update("Update", johnny);
+            //infromation.update("Update", johnny);
         }
         if  (catalyst == 5) {
             System.exit(0);
