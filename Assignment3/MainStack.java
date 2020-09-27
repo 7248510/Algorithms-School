@@ -29,7 +29,7 @@ class Stack
     }
     public boolean push(Listing newNode) {
         if(top == size - 1) { //-1 == n - 1
-            return false;
+            return false; //False = overflow
         }
         else {
             top = top + 1;
@@ -55,11 +55,27 @@ class Stack
             System.out.println(data[i]);
         }
     }
-    public empty()
+    public String empty() //Emptying the current stack
     {
-        top = -1; //The top of the stack is -1(If it returns a negative value)
-        size = 0; //initalizing the stack to 0 aka an empty stack
-        data = new Listing[10]; //Allocating 10 spaces
+        int topLocation;
+        topLocation = top;
+        //Implementing a loop until we get to 0, therfore emptying the stack
+        //System.out.println(data[topLocation]);
+        for (int i = 5; i >= 0; i--) {
+            //System.out.println(i);
+        }
+        //System.out.println(topLocation);
+        for (topLocation = topLocation; topLocation > 0; --topLocation) {
+            top = 0-1;
+            System.out.println("Stack empty");
+        }
+        /*
+        for (int i = 5; i >= 0; i--) {
+            System.out.println(topLocation);
+        }
+        */
+        //System.out.println(data[topLocation]);
+        return "Reinitalized the stack to 0";
     }
 }
 class Listing
@@ -163,7 +179,7 @@ public class MainStack {
     {
         Queue q = new Queue(3);
         Stack s = new Stack(3);
-        Stack y = new empty();
+        Stack z = new Stack(); //Getting the constructor of stack
         Listing y;
         Listing l;
         Listing x;
@@ -172,16 +188,26 @@ public class MainStack {
         Listing l3 = new Listing("Will", "3nd ave", "277-200-9865");
         Listing l4 = new Listing("John", "4th ave", "216-888-6943");
         //System.out.println(s.pop());//Nothing on the stack
-        //System.out.println(s.push(l1));  //Will print true if valid
-        s.showAll();//Prints everything in the stack
-        s.empty();
-        l = s.pop();
+        //System.out.println(z.push(l1));  //Will print true if valid
+        //s.showAll();//Prints everything in the stack
+        
+        z.push(l4);
+        z.push(l1);
+        z.showAll();
+        System.out.println("\n");
+        z.empty();
+        z.showAll(); //Testing if the stack is empty.
+        //z.pop();
+        z.push(l4);
+        z.push(l1);
+        z.showAll();
+        //l = s.pop();
         //System.out.println(q.deque());
         //System.out.println(q.enque(l2));
         //System.out.println(q.enque(l3));
         q.enque(l2);
         q.enque(l3);
-        System.out.println(q.peek(l3));
+        //System.out.println(q.peek(l3));
         //q.showAll();
         x = q.deque();
         //System.out.println(x.toString());
