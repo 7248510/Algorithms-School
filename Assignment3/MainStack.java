@@ -55,29 +55,40 @@ class Stack
             System.out.println(data[i]);
         }
     }
-    public String empty() //Emptying the current stack
+    public String emptyStack() //Emptying the current stack
     {
         int topLocation;
         topLocation = top;
         //Implementing a loop until we get to 0, therfore emptying the stack
         //System.out.println(data[topLocation]);
-        for (int i = 5; i >= 0; i--) {
-            //System.out.println(i);
-        }
         //System.out.println(topLocation);
         for (topLocation = topLocation; topLocation > 0; --topLocation) {
             top = 0-1;
             System.out.println("Stack empty");
         }
-        /*
-        for (int i = 5; i >= 0; i--) {
-            System.out.println(topLocation);
-        }
-        */
-        //System.out.println(data[topLocation]);
+        
         return "Reinitalized the stack to 0";
     }
+    public boolean empty() //Emptying the current stack
+    {
+        String condition;
+        int topLocation;
+        topLocation = top;
+        System.out.println(topLocation);
+        System.out.println(top);
+        if (top < 0) {
+            condition = "The stack is empty";
+            System.out.println(condition);
+        }
+        else if (top >= 0) {
+            condition = "The stack is not empty";
+            System.out.println(condition);
+            
+        } 
+        return true;
+    }
 }
+//Listing begins
 class Listing
 {
     private String name;
@@ -194,13 +205,15 @@ public class MainStack {
         z.push(l4);
         z.push(l1);
         z.showAll();
-        System.out.println("\n");
+        z.emptyStack();
         z.empty();
         z.showAll(); //Testing if the stack is empty.
         //z.pop();
         z.push(l4);
         z.push(l1);
         z.showAll();
+        
+        z.empty();
         //l = s.pop();
         //System.out.println(q.deque());
         //System.out.println(q.enque(l2));
