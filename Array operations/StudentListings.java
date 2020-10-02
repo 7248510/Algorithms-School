@@ -1,16 +1,5 @@
-//This is where many students are impemented, insert, fetch, update, delete
-//Demonstrate your code/run the program, sorting isn't necessasary
-/*
-Read Chapter 2 in the McAllister text.
-Complete and Submit Programming Exercises #19, #20 and #21 on pages 121-122 of The McAllister text.
-Note: The book makes this sound a little harder than it is. Your goal here is to create a Node  class (#19) which represents one student,
-and then create another class which contains an array of Node objects (#20) and supports insertions, deletions, etc.  
-The important part to learn is knowing how to manually write the dynamic memory allocation of the array as it changes size due to the insertions and deletions. 
-You must use a plain array ( Node[] ) and not one of Java's pre-built classes that handles resizing automatically. 
-The final exercise (#21) is just a demonstration that your array operations work. 
-You do not need to implement a sorting algorithm! (We're doing that much later in the course)
-//This has a sorting mechanism in it
-*/
+//insert, fetch, update, delete
+
 import java.util.Scanner;
 public class StudentListings
 {
@@ -22,7 +11,7 @@ public class StudentListings
     {
         next = 0;
         size = sizeofArray;
-        data = new Node[size]; //Allocating our array for 100 nodes
+        data = new Node[size]; //Allocating our array
     }
     public boolean insert(Node newNode)
     {
@@ -41,7 +30,7 @@ public class StudentListings
     {
         Node node;
         Node temp;
-        //Using a sequential search, the book helped with this
+        //Using a sequential search, the book helped/guided with this
         int i = 0;
         while (i < next && !(data[i].compareTo(targetKey) == 0)) //
         {

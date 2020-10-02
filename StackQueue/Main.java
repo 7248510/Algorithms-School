@@ -1,17 +1,5 @@
 import java.lang.*;
 import java.io.*;
-//This is where many students are impemented, insert, fetch, update, delete
-//Demonstrate your code/run the program, sorting isn't necessasary
-/*
-The most important thing to take from this chapter is how a 
-Stack and a Queue work as opposed to an unrestricted Array. 
-I have no problem if you re-use your code from Assignment 2 and modify it to implement a Stack and/or a Queue. 
-Even though the assignment specifies to complete #19 and #20 specifically in the textbook, 
-I'll accept any code that demonstrates the understanding and implementation of Push/Pop behaviors with dynamic memory allocation for a Stack and/or Queue. 
-I realize this portion of the course dealing with simple data structures 
-might be a little less fun that what we will get to do with 
-algorithms in the 2nd half of the class, so I'll give you whatever latitude you need to work.
-*/
 //LIFO
 class Stack
 {
