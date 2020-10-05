@@ -1,7 +1,10 @@
 //This represents one student
 //I've picked 25 and 27 to complete in the book, I'm using my code from chapter 2(for the Listing class/input)
+//27 has to be run locally, the online compilers wouldn't let my input pass.
 //I've used the book for reference
 import java.util.Scanner;
+import java.io.*;
+import java.lang.*;
 //This is from the assignment 2
 class Listing
 {
@@ -30,22 +33,6 @@ class Listing
     public void setuid(String suiD)
     {
         uid = suiD;
-    }
-    public Listing input()
-    {
-        Scanner myObj = new Scanner(System.in);
-        System.out.println("Please enter your name: ");
-        String nameI = myObj.nextLine();
-        System.out.println("Please enter your GPA:");
-        String gpaI = myObj.nextLine();
-        System.out.println("Please enter your age:");
-        String uidI = myObj.nextLine();
-        // Output input by user
-        uid = uidI; //Getting the passed values
-        name = nameI; //Getting the passed values
-        gpa = gpaI; // Getting the passed values
-        Listing inputData = new Listing(nameI, uidI, gpaI);
-        return inputData;
     }
 }
 //Implementing Linked List
@@ -122,15 +109,16 @@ class SinglyLinkedList
     public class Node
     {
         private Listing list;
-        private Node next;        
+        private Node next;     
     }
 }
+
 
 
 public class Main
 {
     public static void demo(){
-        System.out.println("DEMO STARTS:\n");
+        System.out.println("DEMO STARTS:");
         SinglyLinkedList linkeddemonoInput = new SinglyLinkedList();
         Listing l3 = new Listing("Bob", "Third ave", "243-206-5255");
         Listing l4 = new Listing("Douglas", "Fourth ave", "123-896-5555");
@@ -167,7 +155,8 @@ public class Main
         String message = "Press 1 to insert a new students information:\nPress 2 to fetch and output a students information\nPress 3 to delete a students information\nPress 4 to update a students information\nPress 5 to output all the students information\npress 6 to exit";
         System.out.println(message);
         Scanner myObj = new Scanner(System.in);
-        int catalyst = myObj.nextInt();
+        int catalyst;
+        catalyst = myObj.nextInt();
         if  (catalyst == 1) {
             Listing x1 = new Listing("Tyler", "1st input ave", "123-896-5555");
             Listing x2 = new Listing("John", "2nd input ave", "124-596-5555");
@@ -186,21 +175,21 @@ public class Main
         if (catalyst == 2) {
             linkedDemo.showAll();
             System.out.println("Please select a students information to fetch.\nUse the first name in the operation.");
-            String choice = myObj.next();
+            String choice = myObj.nextLine();
             System.out.println(linkedDemo.fetch(choice));
             choice();
         }
-        if  (catalyst == 3) {
+        if (catalyst == 3) {
             linkedDemo.showAll();
             System.out.println("Please enter a name to delete");
-            String choice = myObj.next();
+            String choice = myObj.nextLine();
             linkedDemo.delete(choice);
             System.out.println("Deleted" + " "+ choice);
             System.out.println("Showing current list:\n");
             linkedDemo.showAll();
             choice();
         }
-        if  (catalyst == 4) {
+        if (catalyst == 4) {
             System.out.println("Fixing a mistake, updating Bill to William");
             linkedDemo.showAll();
             linkedDemo.update("Bill", x9);
@@ -208,19 +197,18 @@ public class Main
             linkedDemo.showAll();
             choice();
         }
-        if  (catalyst == 5) {
+        if (catalyst == 5) {
             linkedDemo.showAll();
             choice();
         }
-        if  (catalyst == 6) {
+        if (catalyst == 6) {
             System.out.println("Exiting the program.");
             System.exit(0);
         }
     }
     public static void main(String[] args)
     {
-        demo();
-        System.out.println("\n");
-        choice();
+        demo(); //The functionality is the exactly the same as the menu/demonstrates the linked list excluding the scanner.
+        //choice(); //The menu only works on a local JDK. The online compilers presented an error with the system. If you'd like to test it, uncomment choice
     }
 }
