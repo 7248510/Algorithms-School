@@ -1,7 +1,6 @@
 import java.io.*;
-import java.util.*;
+import java.util.*; //Used for random number generation
 import java.lang.*; //Used for the array to string method(This is optional, the demo function doesn't use the toString method)
-import java.util.Random; //Used for random number generation
 //Step 1 generate a sequence/generate an array with some nodes
 //step 2 Understand recurssion
 //Step 3 Demo an array list/work on manipulating arrays
